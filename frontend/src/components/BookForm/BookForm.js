@@ -1,9 +1,15 @@
 import { useState } from 'react';
-import './BookForm.css'
+import { useDispatch } from 'react-redux';
+
+import { addBook } from '../../redux/books/actionCreators';
+import './BookForm.css';
+
+// npm install @reduxjs/toolkit@1.9.5 react-redux@8.1.2
 
 const BookForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const dispatch = useDispatch();
 
   // const [formData, setFormData] = useState({})
 
@@ -11,7 +17,12 @@ const BookForm = () => {
     //nfn(snippet)
     e.preventDefault();
     if (title && author) {
-      // dispatch action
+      const book = {
+        title,
+        author,
+      };
+      dispatch(addBook(book));
+
       setTitle('');
       setAuthor('');
     }
