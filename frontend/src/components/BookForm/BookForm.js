@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import createBookWithID from '../../utils/createBookWithID';
 import booksData from '../../data/books.json';
-import { addBook } from '../../redux/books/actionCreators';
+import { addBook } from '../../redux/slices/booksSlice';
 import './BookForm.css';
 
 // npm install @reduxjs/toolkit@1.9.5 react-redux@8.1.2
@@ -26,8 +26,7 @@ const BookForm = () => {
     //nfn(snippet)
     e.preventDefault();
     if (title && author) {
-      
-      dispatch(addBook(createBookWithID({ title, author})));
+      dispatch(addBook(createBookWithID({ title, author })));
 
       setTitle('');
       setAuthor('');
