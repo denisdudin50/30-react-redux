@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import createBookWithID from '../../utils/createBookWithID';
 import booksData from '../../data/books.json';
-import { addBook, funkFunction } from '../../redux/slices/booksSlice';
+import { addBook, fetchBook } from '../../redux/slices/booksSlice';
 import './BookForm.css';
 
 // npm install @reduxjs/toolkit@1.9.5 react-redux@8.1.2
@@ -34,7 +34,7 @@ const BookForm = () => {
   };
 
   const handleAddRandomBookViaAPI = () => {
-    dispatch(funkFunction);
+    dispatch(fetchBook());
   };
 
   return (
